@@ -55,9 +55,13 @@ El sistema analizará si el tejido presenta características **Benignas** o **Ma
 
 st.warning("📢 **Recomendación**: Si sube múltiples imágenes para aprovechar el **diagnóstico por votación**, asegúrese de que todas pertenezcan al **mismo paciente**.")
 
-uploaded_files = st.file_uploader("Subir imágenes (PNG, JPG, JPEG)", type=["png", "jpg", "jpeg"], accept_multiple_files=True)
+uploaded_files = st.file_uploader("Subir imágenes (PNG, JPG, JPEG)", type=["png", "jpg", "jpeg"], accept_multiple_files=True, key="uploader_key")
 
 if uploaded_files:
+    if st.button("🗑️ Borrar imágenes"):
+        st.session_state["uploader_key"] = []
+        st.rerun()
+
     st.divider()
     st.subheader("Resultados del Análisis")
     
