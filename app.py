@@ -19,6 +19,18 @@ st.sidebar.info("Esta aplicación utiliza una red neuronal ResNet18 para clasifi
 # Opción de Macenko
 use_macenko = st.sidebar.checkbox("Activar Normalización de Macenko", value=False, help="Aplica normalización de color para estandarizar la tinción de las imágenes.")
 
+st.sidebar.divider()
+st.sidebar.subheader("ℹ️ Sobre el Modelo")
+st.sidebar.markdown("""
+El modelo fue entrenado con el dataset **BreaKHis**, que contiene:
+- **9,109** imágenes microscópicas de tejido tumoral mamario.
+- **82** pacientes.
+- Magnificaciones: **40X, 100X, 200X, 400X**.
+- **2,480** muestras benignas y **5,429** malignas.
+
+⚠️ **Advertencia**: Esta herramienta es un sistema de apoyo al diagnóstico y **no sustituye** la evaluación de un patólogo profesional.
+""")
+
 # Cargar Modelo
 @st.cache_resource
 def get_model():
@@ -40,6 +52,8 @@ st.markdown("""
 Sube una o varias imágenes histopatológicas para obtener una predicción.
 El sistema analizará si el tejido presenta características **Benignas** o **Malignas**.
 """)
+
+st.warning("📢 **Recomendación**: Si sube múltiples imágenes para aprovechar el **diagnóstico por votación**, asegúrese de que todas pertenezcan al **mismo paciente**.")
 
 uploaded_files = st.file_uploader("Subir imágenes (PNG, JPG, JPEG)", type=["png", "jpg", "jpeg"], accept_multiple_files=True)
 
