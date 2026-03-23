@@ -1,5 +1,7 @@
 # 🎗️ Sistema de Diagnóstico Asistido por IA (Breast Cancer Diagnosis Streamlit App)
 
+**[👉 Prueba la aplicación en vivo aquí 👈](https://breast-cancer-prediction-project3.streamlit.app/)**
+
 Esta es una aplicación web interactiva desarrollada con [Streamlit](https://streamlit.io/) para la clasificación de imágenes histopatológicas de cáncer de mama. La aplicación utiliza un modelo **ResNet18** pre-entrenado para predecir si el tejido tumoral presenta características **Benignas** o **Malignas**, proporcionando mapas de calor visuales (Grad-CAM) para explicar las decisiones del modelo.
 
 > **Importante:** Este repositorio contiene únicamente el código de la aplicación de usuario (Front-end) y el script de inferencia del modelo. 
